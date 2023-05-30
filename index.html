@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasbeh App</title>
+    <style>
+        .container {
+            margin: 15% auto 0 auto;
+            width: 400px;
+            height: 300px;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .container p {
+            margin-bottom: 70px;
+        }
+
+        .clicked {
+            font-weight: bold;
+            font-size: 32px;
+        }
+
+        .container button {
+            font-size: 28px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <p class="clicked">0</p>
+
+        <button onclick="
+        updateNum()
+        ">
+            Click me
+        </button>
+
+        <button onclick="
+        resetNum()
+        ">
+            Reset
+        </button>
+    </div>
+
+
+    <script>
+        const clicked = document.querySelector('.clicked')
+        const say = document.querySelector('.say')
+        console.log(say);
+        let num = localStorage.getItem("theNum") || 0;
+        function updateNum() {
+            num = num + 1
+            clicked.innerHTML = localStorage.getItem("theNum");
+            localStorage.setItem("theNum", num);
+        }
+
+        function resetNum() {
+            num = localStorage.removeItem("theNum");
+            num = 0;
+            clicked.innerHTML = localStorage.getItem(num);
+
+        }
+
+    </script>
+</body>
+
+</html>
